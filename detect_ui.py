@@ -28,11 +28,11 @@ import numpy as np
 import torch
 from PIL import Image
 
-DEFAULT_PROMPT = "button. text. icon. label. slider."
+DEFAULT_PROMPT = "button. text. icon. card. badge. slider."
 
 SAM2_CHECKPOINT = "./checkpoints/sam2.1_hiera_small.pt"
 SAM2_MODEL_CFG = "configs/sam2.1/sam2.1_hiera_s.yaml"
-GDINO_MODEL_ID = "IDEA-Research/grounding-dino-tiny"
+GDINO_MODEL_ID = "IDEA-Research/grounding-dino-base"
 
 
 def parse_args():
@@ -50,13 +50,13 @@ def parse_args():
     parser.add_argument(
         "--box-threshold",
         type=float,
-        default=0.075,
+        default=0.09,
         help="Grounding DINO box confidence threshold (default: 0.075). Lower = more detections.",
     )
     parser.add_argument(
         "--text-threshold",
         type=float,
-        default=0.1,
+        default=0.09,
         help="Grounding DINO text matching threshold (default: 0.1). Lower = more detections.",
     )
     parser.add_argument(
